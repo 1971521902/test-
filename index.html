@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+	<meta charset='utf-8' />
+	<title>www.layabox.com</title>
+	<meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+	/>
+	<meta name="renderer" content="webkit"/>
+	<meta name='apple-mobile-web-app-capable' content='yes' />
+	<meta name='full-screen' content='true' />
+	<meta name='x5-fullscreen' content='true' />
+	<meta name='360-fullscreen' content='true' />
+	<meta name="laya" screenorientation ="landscape"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta http-equiv='expires' content='0' />
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+</head>
+
+<body>
+	<!--以下引用了常用类库，如果不使用，可以删除-->
+	<!--核心包，封装了显示对象渲染，事件，时间管理，时间轴动画，缓动，消息交互,socket，本地存储，鼠标触摸，声音，加载，颜色滤镜，位图字体等-->
+	<script type="text/javascript" src="libs/laya.core.js"></script>
+	<!--Webgl渲染库，勾选使用webgl模式渲染，否则使用canvas模式渲染-->
+	<script type="text/javascript" src="libs/laya.webgl.js"></script>
+	<!--动画库，提供了Swf动画，骨骼动画（Spine和龙骨）的支持-->
+	<script type="text/javascript" src="libs/laya.ani.js"></script>
+	<!--滤镜库，提供了外发光，阴影，模糊等webgl滤镜效果-->
+	<script type="text/javascript" src="libs/laya.filter.js"></script>
+	<!--html库，提供了html动态排版功能，html富文本等功能-->
+	<script type="text/javascript" src="libs/laya.html.js"></script>
+	<!--粒子库，提供了重力粒子，半径粒子等模块-->
+	<script type="text/javascript" src="libs/laya.particle.js"></script>
+	<!--tilemap支持库，提供了tilemap地图的渲染实现-->
+	<script type="text/javascript" src="libs/laya.tiledmap.js"></script>
+	<!--UI组件库，提供了按钮，下拉框，滑动条等各种UI组件功能-->
+	<script type="text/javascript" src="libs/laya.ui.js"></script>
+	<!--laya.wxmini.js-->
+	<script type="text/javascript" src="libs/laya.wxmini.js"></script>
+	<!-- 物理引擎matter.js -->
+	<!--用户自定义顺序文件添加到这里-->
+	<!--jsfile--Custom-->
+	<!--jsfile--Custom-->
+	<!--自定义的js(src文件夹下)文件自动添加到下面jsfile模块标签里面里-->
+	<!--删除标签，ide不会自动添加js文件，请谨慎操作-->
+	<!--jsfile--startTag-->
+	<script src="js/GameConfig.js"></script>
+	<script src="js/com/handler/managers/WXADManager.js"></script>
+	<script src="js/com/handler/managers/WarManager.js"></script>
+	<script src="js/com/handler/managers/ViewManager.js"></script>
+	<script src="js/com/handler/managers/UserlDataManager.js"></script>
+	<script src="js/com/handler/managers/TipsManager.js"></script>
+	<script src="js/com/handler/managers/SpeedUpManager.js"></script>
+	<script src="js/com/handler/managers/SoundManager.js"></script>
+	<script src="js/com/handler/managers/SocketManager.js"></script>
+	<script src="js/com/handler/managers/SigninManager.js"></script>
+	<script src="js/com/handler/managers/ShopManager.js"></script>
+	<script src="js/com/handler/managers/ShareManager.js"></script>
+	<script src="js/com/handler/managers/SceneManager.js"></script>
+	<script src="js/com/handler/managers/ResLoadManger.js"></script>
+	<script src="js/com/handler/managers/ReconnectionManager.js"></script>
+	<script src="js/com/handler/managers/RankManager.js"></script>
+	<script src="js/com/handler/managers/RandomEventManager.js"></script>
+	<script src="js/com/handler/managers/PoolManager.js"></script>
+	<script src="js/com/handler/managers/ModuleManager.js"></script>
+	<script src="js/com/handler/managers/MapManager.js"></script>
+	<script src="js/com/handler/managers/MainUIManager.js"></script>
+	<script src="js/com/handler/managers/JsonManager.js"></script>
+	<script src="js/com/handler/managers/GuideManager.js"></script>
+	<script src="js/com/handler/managers/EggManager.js"></script>
+	<script src="js/com/handler/managers/BookManager.js"></script>
+	<script src="js/com/handler/managers/AnimalManager.js"></script>
+	<script src="js/com/handler/managers/AnimalDataManager.js"></script>
+	<script src="js/com/events/GameEvents.js"></script>
+	<script src="js/com/datas/vo/UserVO.js"></script>
+	<script src="js/com/datas/vo/AnimalVO.js"></script>
+	<script src="js/com/datas/templet/SigninData.js"></script>
+	<script src="js/com/datas/templet/ShareData.js"></script>
+	<script src="js/com/datas/templet/GameLinkData.js"></script>
+	<script src="js/com/datas/templet/AnimalData.js"></script>
+	<script src="js/com/consts/ProtocolConst.js"></script>
+	<script src="js/com/consts/ModuleConst.js"></script>
+	<script src="js/com/consts/GameConst.js"></script>
+	<script src="js/com/consts/AnimalNameConst.js"></script>
+	<script src="js/com/handler/managers/EventManager.js"></script>
+	<script src="js/com/panel/BaseModulePanel.js"></script>
+	<script src="js/com/panel/book/BookModulePanel.js"></script>
+	<script src="js/ui/layaUI.max.all.js"></script>
+	<script src="js/com/panel/GuidePanel.js"></script>
+	<script src="js/com/panel/login/LoginBtnPanel.js"></script>
+	<script src="js/com/panel/login/LoginViewPanel.js"></script>
+	<script src="js/com/panel/MainUIViewPanel.js"></script>
+	<script src="js/com/panel/NormalTipsViewPanel.js"></script>
+	<script src="js/com/panel/OffLineIncomeModulePanel.js"></script>
+	<script src="js/com/panel/rank/RankModulePanel.js"></script>
+	<script src="js/com/panel/shop/ShopModulePanel.js"></script>
+	<script src="js/com/panel/signin/SigninModulePanel.js"></script>
+	<script src="js/com/panel/speedup/SpeedUpModulePanel.js"></script>
+	<script src="js/com/panel/StartGamePanel.js"></script>
+	<script src="js/com/server/PackageIn.js"></script>
+	<script src="js/com/server/PackageOut.js"></script>
+	<script src="js/com/view/AnimalView.js"></script>
+	<script src="js/com/view/BtnGameLinkView.js"></script>
+	<script src="js/com/view/ChickFlyEffView.js"></script>
+	<script src="js/com/view/ComposeEffView.js"></script>
+	<script src="js/com/view/EggView.js"></script>
+	<script src="js/com/view/GoldOutPutView.js"></script>
+	<script src="js/com/view/LoadingEffView.js"></script>
+	<script src="js/com/view/MapPointView.js"></script>
+	<script src="js/com/view/MapView.js"></script>
+	<script src="js/com/view/MaskView.js"></script>
+	<script src="js/com/view/NewAnimalShowView.js"></script>
+	<script src="js/com/view/randomevent/AddGoldEffView.js"></script>
+	<script src="js/com/view/randomevent/ArrowEffView.js"></script>
+	<script src="js/com/view/randomevent/RandomEventTipsView.js"></script>
+	<script src="js/com/view/randomevent/RandomEventView.js"></script>
+	<script src="js/com/view/randomevent/RedBagEffView.js"></script>
+	<script src="js/com/view/randomevent/RedBagView.js"></script>
+	<script src="js/com/view/ReconnectionView.js"></script>
+	<script src="js/com/view/SceneView.js"></script>
+	<script src="js/com/view/TanhaoEffView.js"></script>
+	<script src="js/com/view/war/AiCircleView.js"></script>
+	<script src="js/com/view/war/CircleView.js"></script>
+	<script src="js/com/view/war/ControllerView.js"></script>
+	<script src="js/com/view/war/CountDownView.js"></script>
+	<script src="js/com/view/war/GameResultView.js"></script>
+	<script src="js/com/view/war/RotationView.js"></script>
+	<script src="js/com/view/war/WarFoodView.js"></script>
+	<script src="js/com/view/war/WarMapView.js"></script>
+	<!--jsfile--endTag-->
+
+	<!--启动类添加到这里-->
+	<!--jsfile--Main-->
+	<script src="js/com/view/Animal.js"></script>
+	<script src="js/com/view/BackGround.js"></script>
+	<script src="js/Shell.js"></script>
+	<!--jsfile--Main-->
+</body>
+
+</html>
